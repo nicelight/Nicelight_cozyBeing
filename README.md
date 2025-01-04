@@ -7,7 +7,9 @@
 Пока что на контроллере ESP32. Легко адаптируется под es8266.
 Не стесняйтесь задавать любые вопросы в телеграм сообществе [Smartfarm_diy](https://t.me/smartfarm_diy)
 
-![Веб морда для управления открывается в Chrome c телефона или компьютера](https://github.com/nicelight/minihub-pio/blob/main/pic/promo.png), подключенного к wifi сети вместе с контроллером.
+![Веб морда для управления открывается в Chrome c телефона или компьютера](https://github.com/nicelight/minihub-pio/blob/main/pic/promo.png)
 
+### Установка
+Подключаем плату esp32 WROOM32  к заходим на https://ota.gyver.ru/  
 
-
+чтобы к контроллеру подключить датчики и реле, можно использовать "Плата расширения Wroom32" 
