@@ -8,7 +8,7 @@
         "chipFamily": "ESP32",
         "parts": [
           {
-            "path": "https://github.com/nicelight/Nicelight_cozyBeing/blob/main/.pio/build/esp32dev/firmware.bin",
+            "path": "https://github.com/nicelight/Nicelight_cozyBeing/raw/refs/heads/main/.pio/build/esp32dev/firmware.bin",
             "offset": 0
           }
         ]
