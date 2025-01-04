@@ -8,8 +8,8 @@
         "chipFamily": "ESP32",
         "parts": [
           {
-            "path": "https://github.com/nicelight/minihub-pio/raw/refs/heads/main/.pio/build/esp32dev/firmware.bin",
-            "offset": 0
+            "path": "https://github.com/nicelight/Nicelight_cozyBeing/releases/download/v0.1/firmware_full.bin",
+            "offset": 0x10000
           }
         ]
       }
