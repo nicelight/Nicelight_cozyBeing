@@ -7,5 +7,8 @@ https://esp.huhn.me/
 0x10000 - сама прошивка. Только этот файл изменяется при компиляции новой прошивки.
 
 project.json
+
+https://github.com/nicelight/Nicelight_cozyBeing/raw/refs/heads/main/.pio/build/esp32dev/firmware.bin
+
 https://github.com/nicelight/Nicelight_cozyBeing/releases/download/v0.1/firmware_full.bin
   
