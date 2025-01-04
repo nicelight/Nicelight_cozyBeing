@@ -9,7 +9,7 @@
         "parts": [
           {
             "path": "https://github.com/nicelight/Nicelight_cozyBeing/releases/download/v0.1/firmware_full.bin",
-            "offset": 10000
+            "offset": 0
           }
         ]
       }
