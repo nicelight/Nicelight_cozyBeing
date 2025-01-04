@@ -5,3 +5,7 @@ https://esp.huhn.me/
 0x8000 - таблица разметки разделов. Определяет размер секций и наличие SPIFFS  диска;
 
 0x10000 - сама прошивка. Только этот файл изменяется при компиляции новой прошивки.
+
+project.json
+https://github.com/nicelight/Nicelight_cozyBeing/releases/download/v0.1/firmware_full.bin
+  
