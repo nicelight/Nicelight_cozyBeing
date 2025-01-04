@@ -1,0 +1,17 @@
+{
+    "name": "Nicelight Cozybeing",
+    "about": "Контроллер поддержания органических экосистем",
+    "version": "1.1",
+    "notes": "На стадии тестов",
+    "builds": [
+      {
+        "chipFamily": "ESP32",
+        "parts": [
+          {
+            "path": "https://github.com/nicelight/Nicelight_cozyBeing/blob/main/.pio/build/esp32dev/firmware.bin",
+            "offset": 0
+          }
+        ]
+      }
+    ]
+  }
