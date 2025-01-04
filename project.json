@@ -1,8 +1,8 @@
 {
     "name": "Nicelight Cozybeing",
-    "about": "Контроллер поддержания органических экосистем",
-    "version": "1.1",
-    "notes": "На стадии тестов",
+    "about": "Cozy ecosystem support controller",
+    "version": "0.1",
+    "notes": "notes",
     "builds": [
       {
         "chipFamily": "ESP32",
