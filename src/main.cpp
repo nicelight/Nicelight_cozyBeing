@@ -245,7 +245,15 @@ void setup() {
         Serial.print("Error! start AP ");
         Serial.println(WiFi.softAPIP());
         indikator.setPeriod(600, 2, 100, 50);  // раз в  секунду два раза взмигнем - по 200 милисек, гореть будем 50 милисек
-        if (each5min.ready()) ESP.restart();   // через 5 минут ребутаемся
+        if (each5min.ready()) {
+            for (int i = 0; i < 10; i++) {
+                digitalWrite(17, 1);
+                delay(50);
+                digitalWrite(17, 0);
+                delay(50);
+            }
+            ESP.restart();  // через 5 минут ребутаемся
+        }
     });
 
     WiFiConnector.connect(db[kk::wifi_ssid], db[kk::wifi_pass]);
@@ -269,7 +277,15 @@ void loop() {
             // общее время, кол-во, период одного, один зажжен на.
             indikator.setPeriod(1000, 10, 100, 70);  // часто мигаем
         }
-        if (each5min.ready()) ESP.restart();
+        if (each5min.ready()) {
+            for (int i = 0; i < 10; i++) {
+                digitalWrite(17, 1);
+                delay(70);
+                digitalWrite(17, 0);
+                delay(70);
+            }
+            ESP.restart();
+        }
     }  // WiFi.connected()
     sett.tick();  // поддержка веб интерфейса
     NTP.tick();
@@ -325,10 +341,9 @@ void loop() {
                 delay(30);
                 digitalWrite(INDIKATOR, 0);
                 delay(30);
-                if(cnt < 60) cnt++;
+                if (cnt < 60) cnt++;
                 else ESP.restart();
-
             }
         }
-    }//BTN
+    }  // BTN
 }  // loop
