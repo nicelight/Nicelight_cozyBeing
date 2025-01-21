@@ -1,8 +1,8 @@
   {
     "name": "Nicelight_Cozybeing",
     "about": "Cozy ecosystem support controller",
-    "version": "1",
-    "notes": "notes",
+    "version": "0.1",
+    "notes": "Релиз",
     "builds": [
       {
         "chipFamily": "ESP32-C3",
