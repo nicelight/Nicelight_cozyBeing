@@ -48,6 +48,8 @@ struct DHTxx_sensor {
     int16_t hTreshold = 0;
     int16_t tTreshold = 0;
     float tfloat = -80.0;
+    bool heating = 0;
+    bool cooling = 0;
     bool Rel_on = false;
     byte State = 0;  // автомат работы реле
 };

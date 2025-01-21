@@ -12,10 +12,10 @@
 // GyverDBFile db(&LittleFS, "/data.db");
 // static SettingsESP sett(PROJECT_NAME " v" PROJECT_VER, &db);
 
-GyverDBFile db(&LittleFS, "/database2025.db");      // база данных для хранения настроек будет автоматически записываться в файл при изменениях
-SettingsGyver sett("Природный уют", &db);  // указывается заголовок меню, подключается база данных
-Datime curDataTime(NTP);                         // NTP это объект типа GyverNTPClient, наследует stampticker (С) Гайвер
-static bool notice_f;                            // флаг на отправку уведомления о подключении к wifi
+GyverDBFile db(&LittleFS, "/database2025.db");  // база данных для хранения настроек будет автоматически записываться в файл при изменениях
+SettingsGyver sett("Природный уют", &db);       // указывается заголовок меню, подключается база данных
+Datime curDataTime(NTP);                        // NTP это объект типа GyverNTPClient, наследует stampticker (С) Гайвер
+static bool notice_f;                           // флаг на отправку уведомления о подключении к wifi
 
 static const char *const WEEKdays[] = {
     "как будто бы вчера",
@@ -344,15 +344,18 @@ void build(sets::Builder &b) {
             // b.Label("%", "");
             b.Label("%");
         }
-        if (b.Switch(kk::dht1TempRele_enabled, "Охлаждение", nullptr, 0xb7701e)) {  // Реле 1
+        if (b.Switch(kk::dht1TempRele_cooling, "Охлаждение", nullptr, 0xb7701e)) {  // Реле 1
             // data.dht1TempRele_enbl = db[kk::dht1TempRele_enabled].toInt();
 
-            if (db[kk::dht1TempRele_enabled].toInt() == 0)
-                data.dhtOne.State = 0;  // принудительно выключаем реле
+            if ((db[kk::dht1TempRele_cooling].toInt() == 0) && db[kk::dht1TempRele_heating].toInt() == 0)
+                data.dhtOne.State = 0;  // если оба ползунка ноль - принудительно выключаем реле
+            if(db[kk::dht1TempRele_cooling].toInt() != 0) // при включении охл,
+                db[kk::dht1TempRele_heating] = (uint8_t)0;  // отключим  нагрев
             userDhtRelays();
             b.reload();
         }
-        if (db[kk::dht1TempRele_enabled].toInt() != 0) {
+        // охлаждение включено, отобразим параметры
+        if (db[kk::dht1TempRele_cooling].toInt() != 0) {
             {
                 sets::Row g(b);
                 b.LED(kk::dht1Rele_led, "Cтатус >>", data.dhtOne.Rel_on, sets::Colors::Gray, sets::Colors::Yellow);
@@ -362,6 +365,10 @@ void build(sets::Builder &b) {
             b.Select(kk::dht1TempRele_TempThreshold, "Порог отключения", "0,5 °C;1 °C;2 °C;3 °C");
         }
         b.Label(" ");
+        //
+        //
+        //DHT 
+        2
         {
             sets::Row g(b);
             b.LabelFloat(kk::floattempdht2, db[kk::dht2name], data.dhtTwo.tfloat, 1, 0x3da7f2);  // DHT22 темп 2

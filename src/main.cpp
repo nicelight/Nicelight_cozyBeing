@@ -65,7 +65,8 @@ void setup() {
     db.init(kk::ntp_gmt, 5);
 
     db.init(kk::dht1name, "Имя первого dht22");
-    db.init(kk::dht1TempRele_enabled, (uint8_t)0);
+    db.init(kk::dht1TempRele_heating, (uint8_t)0);
+    db.init(kk::dht1TempRele_cooling, (uint8_t)0);
     db.init(kk::dht1TempRele_startTemp, (uint8_t)26);
     db.init(kk::dht1TempRele_TempThreshold, (uint8_t)1);
 
@@ -262,7 +263,15 @@ void setup() {
     //   getdht2();
 }  // setup
 
+uint32_t prevMs = 0;
+byte checker = 0;
 void loop() {
+    if (millis() - prevMs > 100) {
+        Serial.print("Big loop time: ");
+        Serial.println(millis() - prevMs);
+    }
+    prevMs = millis();
+
     // если wifi связь есть, сбрасываем вочдог таймер 5 минутный.
     // если нет связи, ждем 5 минут и ребутаемся, а то мало ли
     // если связь восстановилась после потери, снова мигаем плавно
@@ -303,6 +312,29 @@ void loop() {
         getdht1();  // опрос датчика медленный и умножение
         delay(1);   //  отдадим управление вайфаю
         getdht2();  // // опрос датчика медленный и умножение
+        //         switch (checker) {
+        //     case 0:  // INIT
+        //         checker = 5;
+        //         break;
+        //     case 5:  // SOIL
+        //         // read_Soil_Hum();  // Опрос датчика почвы
+        //         // delay(1);         //  отдадим управление вайфаю
+        //         // read_Soil_Temp();
+        //         Serial.print("секунды: ");
+        //         Serial.print(millis() / 1000);
+        //         Serial.println("\t тут читаем датчик 1");
+        //         checker = 10;
+        //         break;
+        //     case 10:  // AIR
+        //         Serial.print("секунды: ");
+        //         Serial.print(millis() / 1000);
+        //         Serial.println("\t а тут читаем датчик 2");
+        //         // read_Air_Hum();   // Опрос датчика воздуха
+        //         // delay(1);         //  отдадим управление вайфаю
+        //         // read_Air_Temp();  // Опрос датчика воздуха
+        //         checker = 5;
+        //         break;
+        // }  // switch(checker)
     }  // each5Sec
 
     if (eachSec.ready()) {                  // раз в 1 сек
@@ -317,7 +349,8 @@ void loop() {
         userSixTimers();
         userNatureTimer();
         userFertiTimer();
-    }
+    }  // eachSec
+
     userDhtRelays();  // тут ничего медленного, можно часто
     userDSRelays();   // тут ничего медленного, можно часто
 

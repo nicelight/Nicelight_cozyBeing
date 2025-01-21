@@ -12,3 +12,5 @@ https://github.com/nicelight/Nicelight_cozyBeing/raw/refs/heads/main/.pio/build/
 
 https://github.com/nicelight/Nicelight_cozyBeing/releases/download/v0.1/firmware_full.bin
   
+data.dhtOne.heating = 0;
+data.dhtOne.cooling = 0;

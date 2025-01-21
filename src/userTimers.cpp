@@ -95,7 +95,6 @@ void read_t1_from_db() {
 //
 //
 //
-
 void userDhtRelays() {
     // === термореле DHT1 для охлаждения воздуха
     switch (data.dhtOne.State) {
