@@ -16,10 +16,10 @@
       {
         "chipFamily": "ESP32",
         "parts": [
-          { "path": "https://raw.githubusercontent.com/nicelight/Nicelight_cozyBeing/main/.pio/build/esp32dev/bootloader.bin", "offset": 4096 },
-          { "path": "https://raw.githubusercontent.com/nicelight/Nicelight_cozyBeing/main/.pio/build/esp32dev/partitions.bin", "offset": 32768 },
-          { "path": "https://raw.githubusercontent.com/nicelight/Nicelight_cozyBeing/main/.pio/build/esp32dev/boot_app0.bin", "offset": 57344 },
-          { "path": "https://raw.githubusercontent.com/nicelight/Nicelight_cozyBeing/main/.pio/build/esp32dev/firmware.bin", "offset": 65536 }
+            { "path": "https://raw.githubusercontent.com/nicelight/Nicelight_cozyBeing/main/.pio/build/esp32dev/bootloader.bin", "offset": 4096 },
+            { "path": "https://raw.githubusercontent.com/nicelight/Nicelight_cozyBeing/main/.pio/build/esp32dev/partitions.bin", "offset": 32768 },
+            { "path": "https://raw.githubusercontent.com/nicelight/Nicelight_cozyBeing/main/.pio/build/esp32dev/boot_app0.bin", "offset": 57344 },
+            { "path": "https://raw.githubusercontent.com/nicelight/Nicelight_cozyBeing/main/.pio/build/esp32dev/firmware.bin", "offset": 65536 }
         ]
       }
     ]
