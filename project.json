@@ -5,15 +5,6 @@
     "notes": "Релиз",
     "builds": [
       {
-        "chipFamily": "ESP32-C3",
-        "parts": [
-          {
-            "path": "https://github.com/GyverLibs/testota/releases/latest/download/v2c3.bin",
-            "offset": 0
-          }
-        ]
-      },
-      {
         "chipFamily": "ESP32",
         "parts": [
             { "path": "https://raw.githubusercontent.com/nicelight/Nicelight_cozyBeing/main/.pio/build/esp32dev/bootloader.bin", "offset": 4096 },
